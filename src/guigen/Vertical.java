@@ -4,7 +4,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-public class Vertical extends Pane<VBox>
+public class Vertical extends JavaFXPane<VBox>
 {
     public Vertical(List<GuiRecipe> recipes)
     {

@@ -1,6 +1,7 @@
 import guigen.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -46,8 +47,10 @@ public class Main extends Application {
                 new CheckBox(true, "Checkbox A"),
                 new CheckBox(false, "Checkbox B")
         ));
+        
+        ElementRecipe<Pane> frame = new Container(Arrays.asList(pane));
 
-        primaryStage.setScene(new Scene(pane.build(), 400, 250));
+        primaryStage.setScene(new Scene(frame.build(), 400, 250));
         primaryStage.show();
     }
 }

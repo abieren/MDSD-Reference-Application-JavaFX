@@ -4,7 +4,7 @@ import javafx.scene.layout.HBox;
 
 import java.util.List;
 
-public class Horizontal extends Pane<HBox>
+public class Horizontal extends JavaFXPane<HBox>
 {
     public Horizontal(List<GuiRecipe> recipes)
     {

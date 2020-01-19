@@ -4,12 +4,12 @@ import javafx.scene.Node;
 
 import java.util.List;
 
-public class Pane<P extends javafx.scene.layout.Pane> implements ElementRecipe<P>
+public class JavaFXPane<P extends javafx.scene.layout.Pane> implements ElementRecipe<P>
 {
     private Class<P> clazz;
     private List<GuiRecipe> recipes;
 
-    public Pane(Class<P> clazz, List<GuiRecipe> recipes)
+    public JavaFXPane(Class<P> clazz, List<GuiRecipe> recipes)
     {
         this.clazz = clazz;
         this.recipes = recipes;
