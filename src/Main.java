@@ -1,5 +1,6 @@
 import guigen.*;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -56,12 +57,17 @@ public class Main extends Application {
                 new AlterElement<>(new Label("Label with changed background"), label -> {
                     label.setBackground(new Background(new BackgroundFill(
                             new Color(1, 0, 0, 1), null, null)));
-                    return label;})
+                    return label;}),
+
+                new Positional(Arrays.asList(
+                    new Position<>(10, 20, new Label("Label with changed position"))
+                ))
         ));
 
         ElementRecipe<Pane> frame = new Container(Arrays.asList(pane));
+        Pane generated = frame.build();
 
-        primaryStage.setScene(new Scene(frame.build(), 400, 250));
+        primaryStage.setScene(new Scene(generated, 400, 250));
         primaryStage.show();
     }
 }
