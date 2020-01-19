@@ -1,11 +1,16 @@
 import guigen.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -45,9 +50,15 @@ public class Main extends Application {
 
                 // check boxes
                 new CheckBox(true, "Checkbox A"),
-                new CheckBox(false, "Checkbox B")
+                new CheckBox(false, "Checkbox B"),
+
+                // alter: change background
+                new AlterElement<>(new Label("Label with changed background"), label -> {
+                    label.setBackground(new Background(new BackgroundFill(
+                            new Color(1, 0, 0, 1), null, null)));
+                    return label;})
         ));
-        
+
         ElementRecipe<Pane> frame = new Container(Arrays.asList(pane));
 
         primaryStage.setScene(new Scene(frame.build(), 400, 250));
