@@ -6,12 +6,12 @@ import javafx.scene.control.ToggleGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RadioButtons implements GroupRecipe<RadioButton>
+public class Radiobuttons implements GroupRecipe<RadioButton>
 {
     private int toggledIndex;
     private List<String> labels;
 
-    public RadioButtons(int toggledIndex, List<String> labels)
+    public Radiobuttons(int toggledIndex, List<String> labels)
     {
         this.toggledIndex = toggledIndex;
         this.labels = labels;

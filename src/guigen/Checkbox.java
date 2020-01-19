@@ -1,11 +1,11 @@
 package guigen;
 
-public class CheckBox implements ElementRecipe<javafx.scene.control.CheckBox>
+public class Checkbox implements ElementRecipe<javafx.scene.control.CheckBox>
 {
     private boolean toggled;
     private String label;
 
-    public CheckBox(boolean toggled, String label)
+    public Checkbox(boolean toggled, String label)
     {
         this.toggled = toggled;
         this.label = label;

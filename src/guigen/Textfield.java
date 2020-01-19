@@ -1,10 +1,10 @@
 package guigen;
 
-public class TextField implements ElementRecipe<javafx.scene.control.TextField>
+public class Textfield implements ElementRecipe<javafx.scene.control.TextField>
 {
     private String text;
 
-    public TextField(String text)
+    public Textfield(String text)
     {
         this.text = text;
     }
