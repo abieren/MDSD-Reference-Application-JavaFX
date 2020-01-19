@@ -1,20 +1,22 @@
-package gengui;
+package guigen;
 
 import javafx.scene.Node;
 
-public interface ElementRecipe<T extends Node> extends GuiRecipe<T>
+import java.util.List;
+
+public interface GroupRecipe<T extends Node> extends GuiRecipe<T>
 {
     @Override
     default ElementRecipe<T> castElementRecipe()
     {
-        return this;
+        return null;
     }
 
     @Override
     default GroupRecipe<T> castGroupRecipe()
     {
-        return null;
+        return this;
     }
 
-    T build();
+    List<T> build();
 }

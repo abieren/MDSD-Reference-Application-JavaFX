@@ -1,4 +1,4 @@
-package gengui;
+package guigen;
 
 public class CheckBox implements ElementRecipe<javafx.scene.control.CheckBox>
 {

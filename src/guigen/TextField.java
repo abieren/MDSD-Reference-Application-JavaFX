@@ -1,4 +1,4 @@
-package gengui;
+package guigen;
 
 public class TextField implements ElementRecipe<javafx.scene.control.TextField>
 {

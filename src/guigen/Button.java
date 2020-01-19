@@ -1,4 +1,4 @@
-package gengui;
+package guigen;
 
 public class Button implements ElementRecipe<javafx.scene.control.Button>
 {

@@ -1,4 +1,4 @@
-package gengui;
+package guigen;
 
 public class Label implements ElementRecipe<javafx.scene.control.Label>
 {

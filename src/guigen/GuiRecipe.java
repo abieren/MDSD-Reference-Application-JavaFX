@@ -1,6 +1,5 @@
-package gengui;
+package guigen;
 
-import gengui.ElementRecipe;
 import javafx.scene.Node;
 
 public interface GuiRecipe<T extends Node>

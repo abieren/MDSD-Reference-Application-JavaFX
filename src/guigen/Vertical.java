@@ -1,6 +1,5 @@
-package gengui;
+package guigen;
 
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;

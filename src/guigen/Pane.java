@@ -1,4 +1,4 @@
-package gengui;
+package guigen;
 
 import javafx.scene.Node;
 
