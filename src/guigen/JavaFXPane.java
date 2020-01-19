@@ -24,6 +24,7 @@ public class JavaFXPane<P extends javafx.scene.layout.Pane> implements ElementRe
         P pane = p;
 
         recipes.forEach(recipe -> {
+            if (recipe == null) return;
             ElementRecipe elementRecipe = recipe.castElementRecipe();
             GroupRecipe groupRecipe = recipe.castGroupRecipe();
 
