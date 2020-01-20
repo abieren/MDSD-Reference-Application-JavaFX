@@ -18,18 +18,18 @@ public class Main extends Application {
 
 
 
-        ElementRecipe<GridPane> pane = new Vertical(Arrays.asList(
+        ElementRecipe<GridPane> pane = new Vertical(null, Arrays.asList(
                 // horizontal orientation
-                new Horizontal(Arrays.asList(
+                new Horizontal(null, Arrays.asList(
                     // vertical orientation
-                    new Vertical(Arrays.asList(
+                    new Vertical(null, Arrays.asList(
                             // labels
                             new Label("Label A"),
                             new Label("Label B")
                     )),
 
                     // vertical orientation
-                    new Vertical(Arrays.asList(
+                    new Vertical(null, Arrays.asList(
                             // textfields
                             new Textfield("Textfielsd A"),
                             new Textfield("Textfield B")

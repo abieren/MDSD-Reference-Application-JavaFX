@@ -8,10 +8,12 @@ import java.util.stream.IntStream;
 
 public class Vertical implements ElementRecipe<GridPane>
 {
+    private Integer fixed;
     private List<GuiRecipe> recipes;
 
-    public Vertical(List<GuiRecipe> recipes)
+    public Vertical(Integer fixed, List<GuiRecipe> recipes)
     {
+        this.fixed = fixed;
         this.recipes = recipes;
     }
 
@@ -43,10 +45,17 @@ public class Vertical implements ElementRecipe<GridPane>
             }
         }
 
-        if (counter != 0)
+        if (counter != 0 && fixed == null)
         {
             RowConstraints cc = new RowConstraints();
             cc.setPercentHeight(100.0 / (double)counter);
+            IntStream.range(0, counter).forEach(x ->grid.getRowConstraints().add(cc));
+        }
+        else if (fixed != null && fixed != 0)
+        {
+            RowConstraints cc = new RowConstraints();
+            cc.setPrefHeight(fixed);
+            cc.setMaxHeight(fixed);
             IntStream.range(0, counter).forEach(x ->grid.getRowConstraints().add(cc));
         }
 

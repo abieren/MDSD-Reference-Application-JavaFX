@@ -3,15 +3,19 @@ package guigen;
 import javafx.scene.Node;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
+
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class Horizontal implements ElementRecipe<GridPane>
 {
+    private Integer fixed;
     private List<GuiRecipe> recipes;
 
-    public Horizontal(List<GuiRecipe> recipes)
+    public Horizontal(Integer fixed, List<GuiRecipe> recipes)
     {
+        this.fixed = fixed;
         this.recipes = recipes;
     }
 
@@ -43,10 +47,17 @@ public class Horizontal implements ElementRecipe<GridPane>
             }
         }
 
-        if (counter != 0)
+        if (counter != 0 && fixed == null)
         {
             ColumnConstraints cc = new ColumnConstraints();
             cc.setPercentWidth(100.0 / (double)counter);
+            IntStream.range(0, counter).forEach(x ->grid.getColumnConstraints().add(cc));
+        }
+        else if (fixed != null && fixed != 0)
+        {
+            ColumnConstraints cc = new ColumnConstraints();
+            cc.setPrefWidth(fixed);
+            cc.setMaxWidth(fixed);
             IntStream.range(0, counter).forEach(x ->grid.getColumnConstraints().add(cc));
         }
 
