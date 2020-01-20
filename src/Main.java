@@ -16,8 +16,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Reference Application with JavaFX");
 
-
-
         ElementRecipe<GridPane> pane = new Vertical(null, Arrays.asList(
                 // horizontal orientation
                 new Horizontal(null, Arrays.asList(
@@ -50,28 +48,15 @@ public class Main extends Application {
                 new Checkbox(true, "Checkbox A"),
                 new Checkbox(false, "Checkbox B"),
 
-                // alter: change background
-                new AlterElement<>(new Label("Label with changed background"), label -> {
-                    label.setBackground(new Background(new BackgroundFill(
-                            new Color(1, 0, 0, 1), null, null)));
-                    return label;}),
-
                 new Positional(Arrays.asList(
                     new Position<>(10, 20, new Label("Label with changed position"))
                 ))
         ));
 
-
-
         ElementRecipe<Pane> frame = new Container(Arrays.asList(pane));
         Pane generated = frame.build();
 
-        Pane pane2 = new Pane();
-        pane2.setPrefHeight(200);
-        VBox vbox = new VBox(pane2, new javafx.scene.control.Label("Test"));
-
-        primaryStage.setScene(new Scene(new FrameMainWindow().build(), 800, 600));
-        //primaryStage.setScene(new Scene(new guigen.Radiobuttons.FrameMainWindow().build(), 400, 250));
+        primaryStage.setScene(new Scene(generated, 800, 600));
         primaryStage.show();
     }
 }
