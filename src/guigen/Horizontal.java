@@ -1,13 +1,55 @@
 package guigen;
 
-import javafx.scene.layout.HBox;
-
+import javafx.scene.Node;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
 import java.util.List;
+import java.util.stream.IntStream;
 
-public class Horizontal extends JavaFXPane<HBox>
+public class Horizontal implements ElementRecipe<GridPane>
 {
+    private List<GuiRecipe> recipes;
+
     public Horizontal(List<GuiRecipe> recipes)
     {
-        super(HBox.class, recipes);
+        this.recipes = recipes;
+    }
+
+    @Override
+    public GridPane build()
+    {
+        GridPane grid = new GridPane();
+        int counter = 0;
+
+        for (GuiRecipe recipe : recipes)
+        {
+            if (recipe == null) continue;
+            ElementRecipe elementRecipe = recipe.castElementRecipe();
+            GroupRecipe groupRecipe = recipe.castGroupRecipe();
+
+            if (elementRecipe != null)
+            {
+                grid.add(elementRecipe.build(), counter, 0);
+                counter++;
+            }
+            else if (groupRecipe != null)
+            {
+                List<Node> groupElements = (List<Node>)groupRecipe.build();
+                for (Node element : groupElements)
+                {
+                    grid.add(element, counter, 0);
+                    counter++;
+                }
+            }
+        }
+
+        if (counter != 0)
+        {
+            ColumnConstraints cc = new ColumnConstraints();
+            cc.setPercentWidth(100.0 / (double)counter);
+            IntStream.range(0, counter).forEach(x ->grid.getColumnConstraints().add(cc));
+        }
+
+        return grid;
     }
 }

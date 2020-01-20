@@ -1,10 +1,7 @@
 import guigen.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -19,7 +16,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Reference Application with JavaFX");
 
-        ElementRecipe<VBox> pane = new Vertical(Arrays.asList(
+
+
+        ElementRecipe<GridPane> pane = new Vertical(Arrays.asList(
                 // horizontal orientation
                 new Horizontal(Arrays.asList(
                     // vertical orientation
@@ -36,6 +35,7 @@ public class Main extends Application {
                             new Textfield("Textfield B")
                     ))
                 )),
+
 
                 // buttons
                 new Button("Button A"),
@@ -61,10 +61,17 @@ public class Main extends Application {
                 ))
         ));
 
+
+
         ElementRecipe<Pane> frame = new Container(Arrays.asList(pane));
         Pane generated = frame.build();
 
-        primaryStage.setScene(new Scene(generated, 400, 250));
+        Pane pane2 = new Pane();
+        pane2.setPrefHeight(200);
+        VBox vbox = new VBox(pane2, new javafx.scene.control.Label("Test"));
+
+        primaryStage.setScene(new Scene(new FrameMainWindow().build(), 800, 600));
+        //primaryStage.setScene(new Scene(new guigen.Radiobuttons.FrameMainWindow().build(), 400, 250));
         primaryStage.show();
     }
 }
